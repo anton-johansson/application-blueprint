@@ -42,10 +42,23 @@ function resolve(base, configuration)
 		s.isLocal = s.isLocal || false;
 		s.isMultiBound = s.multibinder ? true : false;
 		s.isMapBound = s.mapbinder ? true : false;
-		s.name = s.name || s.external || s.path.substring(s.path.lastIndexOf('/') + 1);
+		s.name = s.name || s.external || deriveNameFromPath(s.path);
 	});
 
 	return configuration;
+}
+
+/** Gets a service name by its path.  */
+function deriveNameFromPath(path)
+{
+	var index = path.lastIndexOf('/');
+	var serviceName = path.substring(index + 1);
+	serviceName = serviceName.charAt(0).toLowerCase() + serviceName.slice(1);
+	if (serviceName.indexOf('.js', serviceName.length - 3) !== -1)
+	{
+		serviceName = serviceName.substring(0, serviceName.length - 3);
+	}
+	return serviceName;
 }
 
 /** Constructs a new service instance. */

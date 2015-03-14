@@ -4,6 +4,6 @@ module.exports =
 	{ external: 'path' },
 
 	// Internal dependencies
-	'./components/service',
-	'./components/handler'
+	'./components/Service.js',
+	'./components/Handler.js'
 ];
