@@ -10,7 +10,7 @@ var KlarnaAuthorizeHandler = function()
 /** Authorizes the payment. */
 KlarnaAuthorizeHandler.prototype.authorize = function(order)
 {
-	console.log("Successfully authorized %s for Klarna order %s", order.totalValue, order.orderId);
+	console.log("Successfully authorized %s %s for Klarna order %s", order.totalValue, order.currency, order.orderId);
 };
 
 // Expose the class

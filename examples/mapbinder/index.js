@@ -13,12 +13,14 @@ var order1 =
 {
 	orderId: 15,
 	totalValue: 99.90,
+	currency: 'EUR',
 	paymentServiceProvider: 'paypal'
 };
 var order2 =
 {
 	orderId: 23,
 	totalValue: 123.45,
+	currency: 'SEK',
 	paymentServiceProvider: 'klarna'
 };
 
