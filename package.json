@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "description": "Lightweight dependency injection framework.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/istanbul cover --include-all-sources ./node_modules/.bin/_mocha test/*.test.js",
+    "test-on-travis": "./node_modules/.bin/istanbul cover --include-all-sources --report lcovonly ./node_modules/.bin/_mocha test/**/*.test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "author": {
     "name": "Anton Johansson",
@@ -28,5 +29,10 @@
   "bugs": {
     "url": "https://github.com/anton-johansson/application-blueprint/issues"
   },
-  "homepage": "https://github.com/anton-johansson/application-blueprint"
+  "homepage": "https://github.com/anton-johansson/application-blueprint",
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.7",
+    "mocha": "^2.2.1"
+  }
 }
