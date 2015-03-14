@@ -1,0 +1,32 @@
+{
+  "name": "application-blueprint",
+  "main": "application-blueprint.js",
+  "version": "0.0.1",
+  "description": "Lightweight dependency injection framework.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Anton Johansson",
+    "email": "antoon.johansson@gmail.com",
+    "url": "https://github.com/anton-johansson"
+  },
+  "license": "Apache 2.0",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anton-johansson/application-blueprint.git"
+  },
+  "keywords": [
+    "di",
+    "ioc",
+    "dependency",
+    "injection"
+  ],
+  "bugs": {
+    "url": "https://github.com/anton-johansson/application-blueprint/issues"
+  },
+  "homepage": "https://github.com/anton-johansson/application-blueprint"
+}
