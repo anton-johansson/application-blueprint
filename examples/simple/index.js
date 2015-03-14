@@ -1,6 +1,6 @@
 /**
  * Application main entry-point.
- * 
+ *
  * @author Anton Johansson
  */
 var blueprint = require('../../application-blueprint');

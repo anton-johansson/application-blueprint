@@ -1,6 +1,6 @@
 /**
  * Handles authorization of payments through Klarna.
- * 
+ *
  * @author Anton Johansson
  */
 var KlarnaAuthorizeHandler = function()

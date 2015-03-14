@@ -1,6 +1,6 @@
 /**
  * Handles authorization of payments through PayPal.
- * 
+ *
  * @author Anton Johansson
  */
 var PayPalAuthorizeHandler = function()

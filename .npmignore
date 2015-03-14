@@ -1,0 +1,5 @@
+examples/
+test/
+
+# IDE related files
+/.c9/

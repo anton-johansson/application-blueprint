@@ -1,6 +1,6 @@
 /**
  * Class for handling stuff.
- * 
+ *
  * @author Anton Johansson
  */
 var Handler = function(path)

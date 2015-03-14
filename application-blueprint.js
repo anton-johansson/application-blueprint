@@ -1,6 +1,6 @@
 /**
  * Core Blueprint file. Handles the creation of the IOC container.
- * 
+ *
  * @author Anton Johansson
  */
 var path = require("path");
@@ -25,26 +25,26 @@ function resolve(base, configuration)
 		{
 			s = configuration[index] = { path: s };
 		}
-		
+
 		// If the service is a package on the disk we need to load it
 		if (s.hasOwnProperty("path"))
 		{
 			var servicePath = path.join(base, s.path);
 			var initializer = require(servicePath);
-			
+
 			s.isLocal = true;
 			s.initializer = initializer;
 			s.dependencies = initializer.$dependencies || [];
 			s.dependenciesLeft = s.dependencies.slice();
 		}
-		
+
 		// Set helper properties
 		s.isLocal = s.isLocal || false;
 		s.isMultiBound = s.multibinder ? true : false;
 		s.isMapBound = s.mapbinder ? true : false;
 		s.name = s.name || s.external || s.path.substring(s.path.lastIndexOf('/') + 1);
 	});
-	
+
 	return configuration;
 }
 
@@ -70,11 +70,11 @@ function getDependencyTree(services)
 		services.concat().forEach(function(s)
 		{
 			var index = services.indexOf(s);
-			
+
 			if (s.isLocal)
 			{
 				var dependencies = s.dependenciesLeft.concat();
-	
+
 				var resolvedAll = true;
 				for (var i = 0; i < dependencies.length; i++)
 				{
@@ -88,19 +88,19 @@ function getDependencyTree(services)
 						s.dependenciesLeft.splice(s.dependenciesLeft.indexOf(dependency), 1);
 					}
 				}
-	
+
 				if (!resolvedAll)
 				{
 					return;
 				}
 			}
-			
+
 			// Add the dependency to the sorted list
 			sorted.push(services[index]);
-			
+
 			// Remove the service from the list of remaining services
 			services.splice(index, 1);
-			
+
 			// Mark the service as resolved
 			resolved[s.name] = true;
 			changed = true;
@@ -126,13 +126,13 @@ function checkForMissingDependencies(resolved, services)
 				{
 					return;
 				}
-				
+
 				// If we have no key for this service yet, create it
 				if (!unresolved[service.name])
 				{
 					unresolved[service.name] = [];
 				}
-				
+
 				// Push the dependency
 				unresolved[service.name].push(dependency);
 			});
@@ -153,7 +153,7 @@ function checkForMissingDependencies(resolved, services)
 function registerServices(app, configuration)
 {
 	var dependencyTree = getDependencyTree(configuration);
-	
+
 	function next()
 	{
 		var service = dependencyTree.shift();
@@ -169,7 +169,7 @@ function registerServices(app, configuration)
 function registerService(app, service, next)
 {
 	var services = app.services;
-	
+
 	if (service.external)
 	{
 		// Require the instance
@@ -186,10 +186,10 @@ function registerService(app, service, next)
 				dependencies.push(services[dependency]);
 			});
 		}
-		
+
 		// Create the instance
 	 	reference = construct(service.initializer, dependencies);
-	 	
+
 	 	// Bind the service
 	 	if (service.isMapBound)
 	 	{
@@ -198,7 +198,7 @@ function registerService(app, service, next)
 			{
 				app.services[service.name] = {};
 			}
-			
+
 			// Bind the mapbinder with given service name
 			app.services[service.name][service.mapbinder] = reference;
 	 	}
@@ -211,7 +211,7 @@ function registerService(app, service, next)
 			app.services[service.name] = reference;
 	 	}
 	}
-	
+
 	// Create next service
 	next();
 }
@@ -219,20 +219,20 @@ function registerService(app, service, next)
 
 /**
  * Blueprint constructor.
- * 
+ *
  * @param configuration The configuration used to create the blueprint container.
  */
 function Blueprint(configuration)
 {
 	var app = this;
 	app.services = {};
-	
+
 	registerServices(app, configuration);
 }
 
 /**
  * Gets a service.
- * 
+ *
  * @param serviceName The name of the service to get.
  */
 Blueprint.prototype.get = function(serviceName)

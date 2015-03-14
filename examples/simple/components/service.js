@@ -1,6 +1,6 @@
 /**
  * Service for handling things.
- * 
+ *
  * @author Anton Johansson
  */
 var Service = function(handler)
