@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "description": "Lightweight dependency injection framework.",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover --include-all-sources ./node_modules/.bin/_mocha test/*.test.js",
-    "test-on-travis": "./node_modules/.bin/istanbul cover --include-all-sources --report lcovonly ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js",
+    "test-on-travis": "./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "author": {
     "name": "Anton Johansson",
