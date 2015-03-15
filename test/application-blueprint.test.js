@@ -29,4 +29,24 @@ describe('application-blueprint.js', function()
 
 		done();
 	});
+
+	it('should throw an error when dependency graph cannot be built', function(done)
+	{
+		var call = function()
+		{
+			blueprint.create(__dirname, 'configuration-incomplete.js')
+		};
+
+		// Mute the error log
+		var oldErrorLog = console.error;
+		console.error = function() {};
+
+		// Run the code
+		expect(call).toThrow();
+
+		// Re-enable the error logging
+		console.error = oldErrorLog;
+
+		done();
+	});
 });

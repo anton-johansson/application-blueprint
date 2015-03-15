@@ -2,8 +2,6 @@
 
 application-blueprint is a very lightweight dependency injection framework for Node.js applications. It makes it very easy to unit test, due to the very simple constructor injection pattern.
 
-[![NPM Version](https://img.shields.io/npm/v/application-blueprint.svg)](https://www.npmjs.com/package/application-blueprint)
-![License](https://img.shields.io/npm/l/application-blueprint.svg)
 [![Build Status](https://img.shields.io/travis/anton-johansson/application-blueprint.svg)](https://travis-ci.org/anton-johansson/application-blueprint)
 [![Coverage](https://img.shields.io/codecov/c/github/anton-johansson/application-blueprint.svg)](https://codecov.io/github/anton-johansson/application-blueprint)
 ![Dependencies](https://img.shields.io/david/anton-johansson/application-blueprint.svg)
