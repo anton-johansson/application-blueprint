@@ -43,6 +43,22 @@ function resolve(base, configuration)
 		s.isMultiBound = s.multibinder ? true : false;
 		s.isMapBound = s.mapbinder ? true : false;
 		s.name = s.name || s.external || deriveNameFromPath(s.path);
+
+		// Set proper mapbinder data
+		if (s.isMapBound)
+		{
+			var name = s.name;
+			var mapbinder = s.mapbinder;
+
+			s.name = mapbinder;
+			s.mapbinder = name;
+		}
+
+		// Set proper multibinder data
+		if (s.isMultiBound)
+		{
+			s.name = s.multibinder;
+		}
 	});
 
 	return configuration;
@@ -217,7 +233,13 @@ function registerService(app, service, next)
 	 	}
 	 	else if (service.isMultiBound)
 	 	{
-			throw new Error("Not yet implemented");
+	 		// If there is no set yet, create one
+	 		if (!app.services[service.multibinder])
+	 		{
+	 			app.services[service.multibinder] = [];
+	 		}
+
+	 		app.services[service.multibinder].push(reference);
 	 	}
 	 	else
 	 	{

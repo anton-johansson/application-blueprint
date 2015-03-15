@@ -1,4 +1,5 @@
 module.exports =
 [
-	'./test-modules/ModuleWithExternalDependency'
+	{ external: 'http' },
+	'./test-modules/ModuleWIthBrokenDependency.js'
 ];

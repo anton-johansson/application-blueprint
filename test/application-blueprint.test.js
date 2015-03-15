@@ -30,6 +30,19 @@ describe('application-blueprint.js', function()
 		done();
 	});
 
+	it('should put multi bound modules in dependency graph correctly', function(done)
+	{
+		var container = blueprint.create(__dirname, 'configuration-with-multibinder.js');
+		var handlers = container.get('handlers');
+
+		expect(handlers).toBeAn(Array);
+		expect(handlers.length).toEqual(2);
+		expect(handlers[0].value()).toEqual(1);
+		expect(handlers[1].value()).toEqual(2);
+
+		done();
+	});
+
 	it('should throw an error when dependency graph cannot be built', function(done)
 	{
 		var call = function()
