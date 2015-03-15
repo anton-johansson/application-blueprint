@@ -1,7 +1,7 @@
 {
   "name": "application-blueprint",
   "main": "application-blueprint.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Lightweight dependency injection framework.",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js",
