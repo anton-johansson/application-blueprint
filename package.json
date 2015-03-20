@@ -5,7 +5,7 @@
   "description": "Lightweight dependency injection framework.",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js",
-    "test-on-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/coverage.json | node_modules/codecov.io/bin/codecov.io.js"
+    "test-on-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "author": {
     "name": "Anton Johansson",
