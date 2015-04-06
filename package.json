@@ -5,7 +5,7 @@
   "description": "Lightweight dependency injection framework.",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js",
-    "test-on-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
+    "test-on-travis": "./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/.bin/_mocha test/*.test.js && cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "author": {
     "name": "Anton Johansson",
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/anton-johansson/application-blueprint",
   "devDependencies": {
-    "codecov.io": "git://github.com/cainus/codecov.io.git#add-services",
+    "codecov.io": "0.0.8",
     "expect": "1.6.0",
     "istanbul": "0.3.7",
     "mocha": "2.2.1"
